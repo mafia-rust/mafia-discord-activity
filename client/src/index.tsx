@@ -1,10 +1,18 @@
 import React from 'react';
+import { DiscordSDK } from "@discord/embedded-app-sdk";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Anchor from './menu/Anchor';
 import { GameManager, createGameManager } from './game/gameManager';
 import LoadingScreen from './menu/LoadingScreen';
 import route from './routing';
+
+// Instantiate the SDK
+const discordSdk = new DiscordSDK(process.env.REACT_APP_DISCORD_CLIENT_ID!);
+
+discordSdk.ready().then(() => {
+    console.log("Discord SDK is ready")
+});
 
 export type Theme = "player-list-menu-colors" | "will-menu-colors" | "role-specific-colors" | "graveyard-menu-colors" | "wiki-menu-colors"
 

@@ -1,4 +1,4 @@
-# Mafia
+# Mafia Discord Activity
 Multiplayer Social Deduction game
 
 ## Getting Started

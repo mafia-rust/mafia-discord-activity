@@ -35,5 +35,7 @@ client/npm-debug.log*
 client/yarn-debug.log*
 client/yarn-error.log*
 
+**/.env
+
 # Py cache
 generate/**/__pycache__

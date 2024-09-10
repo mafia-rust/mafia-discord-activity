@@ -2,7 +2,6 @@ import { ANCHOR_CONTROLLER } from "./../menu/Anchor";
 import StartMenu from "./../menu/main/StartMenu";
 import GAME_MANAGER from "./../index";
 import messageListener from "./messageListener";
-import CONFIG from "./../resources/config.json"
 import React from "react";
 import { PhaseType, PhaseTimes, Verdict, Player, PlayerIndex } from "./gameState.d";
 import { GameManager, Server, StateListener } from "./gameManager.d";
@@ -600,7 +599,10 @@ function createServer(){
         ws: null,
 
         open : () => {
-            let address = CONFIG.address;
+            let address = process.env.REACT_APP_JP_SERVER_ADDRESS;
+            if (address === undefined) {
+                throw new Error("Failed to get JP's server address from the process environment");
+            }
             Server.ws = new WebSocket(address);
 
             let completePromise: () => void;
