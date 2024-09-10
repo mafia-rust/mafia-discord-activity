@@ -16,9 +16,9 @@ export default function StandaloneWiki(props: Readonly<{
                 initialWikiPage={props.initialWikiPage}
                 onPageChange={page => {
                     if (page !== null) {
-                        window.history.replaceState({}, '', `/wiki/${page}`)
+                        window.history.replaceState({}, '', `/wiki/${page}/${window.location.search}`)
                     } else {
-                        window.history.replaceState({}, '', `/wiki`)
+                        window.history.replaceState({}, '', `/wiki/${window.location.search}`)
                     }
                 }}
             />
