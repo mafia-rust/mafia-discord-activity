@@ -17,6 +17,9 @@ client/node_modules
 client/.pnp
 client/.pnp.js
 
+# This is not ours to distribute
+client/public/MaterialIconsRound-Regular.*
+
 # Testing
 client/coverage
 geckodriver.log
