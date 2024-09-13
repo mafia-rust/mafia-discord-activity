@@ -599,11 +599,8 @@ function createServer(){
         ws: null,
 
         open : () => {
-            let address = process.env.REACT_APP_JP_SERVER_ADDRESS;
-            if (address === undefined) {
-                throw new Error("Failed to get JP's server address from the process environment");
-            }
-            Server.ws = new WebSocket(address);
+            const clientId = process.env.REACT_APP_DISCORD_CLIENT_ID;
+            Server.ws = new WebSocket(new URL(`wss://${clientId}.discordsays.com/.proxy/websocketServer`));
 
             let completePromise: () => void;
             let promise = new Promise<void>((resolver) => {
